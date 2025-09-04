@@ -1,3 +1,4 @@
 build/ 
 layers/
-techleef-venv
+techleef-venv/
+.vscode 

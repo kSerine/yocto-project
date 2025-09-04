@@ -1,9 +1,9 @@
 header:
   version: 14
 
-machine: raspberrypi0-2w
-distro: rpi20w-distro
-target: core-image-rpi20w
+machine: rspi0-2w
+distro: techleef-distro
+target: core-image-rpi02w
 
 repos:
   meta-openembedded:
@@ -56,4 +56,6 @@ local_conf_header:
         ABORT,${DL_DIR},100M,1K \
         ABORT,${SSTATE_DIR},100M,1K \
         ABORT,/tmp,10M,1K"
-
+  shared_cache_downloads: | 
+    DL_DIR="${HOME}/data/bitbake.downloads"
+    SSTATE_DIR="${HOME}/data/bitbake.sstate"
