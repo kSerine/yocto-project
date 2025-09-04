@@ -6,14 +6,6 @@ distro: techleef-distro
 target: core-image-rpi02w
 
 repos:
-  meta-openembedded:
-    url: http://git.openembedded.org/meta-openembedded
-    path: layers/meta-openembedded
-    branch: scarthgap
-    layers:
-      meta-oe:
-      meta-python:
-
   meta-raspberrypi:
     url: https://git.yoctoproject.org/meta-raspberrypi
     path: layers/meta-raspberrypi
