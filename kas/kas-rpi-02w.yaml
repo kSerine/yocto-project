@@ -1,0 +1,59 @@
+header:
+  version: 14
+
+machine: raspberrypi0-2w
+distro: rpi20w-distro
+target: core-image-rpi20w
+
+repos:
+  meta-openembedded:
+    url: http://git.openembedded.org/meta-openembedded
+    path: layers/meta-openembedded
+    branch: scarthgap
+    layers:
+      meta-oe:
+      meta-python:
+
+  meta-raspberrypi:
+    url: https://git.yoctoproject.org/meta-raspberrypi
+    path: layers/meta-raspberrypi
+    branch: scarthgap 
+    commit: aaf976a665daa7e520545908adef8a0e9410b57f
+
+  openembedded-core:
+    url: https://git.openembedded.org/openembedded-core
+    path: layers/openembedded-core
+    branch: scarthgap
+    commit: a19afb7db1b9995ce433f8bfeb5406c9fd1fdc19
+    layers:
+      meta:
+
+  bitbake: 
+    url: https://git.openembedded.org/bitbake
+    path: layers/bitbake
+    branch: "2.8"
+    commit: 982645110a19ebb94d519926a4e14c8a2a205cfd
+    layers: 
+      bitbake: disabled 
+  
+  meta-techleef: 
+    path: meta-techleef 
+  
+  meta-techleef-bsp: 
+    path: meta-techleef-bsp 
+  
+  meta-techleef-distro: 
+    path: meta-techleef-distro
+
+local_conf_header:
+  diskmon: |
+    BB_DISKMON_DIRS = "\
+        STOPTASKS,${TMPDIR},1G,100K \
+        STOPTASKS,${DL_DIR},1G,100K \
+        STOPTASKS,${SSTATE_DIR},1G,100K \
+        STOPTASKS,/tmp,100M,100K \
+        ABORT,${TMPDIR},100M,1K \
+        ABORT,${DL_DIR},100M,1K \
+        ABORT,${SSTATE_DIR},100M,1K \
+        ABORT,/tmp,10M,1K"
+
