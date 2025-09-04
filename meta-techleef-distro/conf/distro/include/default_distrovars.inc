@@ -1,0 +1,1 @@
+TECHLEEF_INIT_MANAGER = "none"
